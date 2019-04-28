@@ -48,7 +48,6 @@ function createObjectWithClosures(){
 
 function guestListFns(secretGuestListArr, secretCode){
  	var funcArray = [];
-
  	var inner = function(guestName, secretCode) {
 		return function(code) {
 			if(code === secretCode) {
@@ -59,36 +58,19 @@ function guestListFns(secretGuestListArr, secretCode){
 			}
 		};
 	};
-
 	for(var i = 0; i < secretGuestListArr.length; i++) {
 		var guestName = secretGuestListArr[i];
 		funcArray.push(inner(guestName, secretCode));
 	}
-
 	return funcArray;
 }
 
-
 function generateGuestList(arr, secretCode){
-
 	var strArr = [];
-
 	for (var i = 0; i < arr.length; i++) {
 		strArr.push(arr[i](secretCode));
 	}
-
 	return strArr;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
